@@ -13,6 +13,6 @@
         <item name="android:panelFullBackground">@android:color/darker_gray</item>
     </style>
 
-    <dimen name="font_size">40sp</dimen>
+    <dimen name="font_size">25sp</dimen>
 
 </resources>

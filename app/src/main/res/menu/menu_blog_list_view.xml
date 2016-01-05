@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/black">
+<item
+android:id="@+id/about"
+android:orderInCategory="100"
+android:title="About Developers"
+    android:background="@android:color/black"/>
+ </menu>

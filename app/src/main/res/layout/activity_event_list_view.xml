@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:background="@color/background">
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.4"
+                    android:weightSum="10">
+                    <Button
+                        android:id="@+id/left"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="fill_parent"
+                        android:background="@mipmap/left"
+                        android:clickable="true"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_weight="7"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/currWeek"
+                        android:text="January 2015"
+                        android:textSize="30dp"
+                        android:background="@android:color/transparent"/>
+                    <Button
+                        android:id="@+id/right"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="fill_parent"
+                        android:clickable="true"
+                        android:background="@mipmap/rightt" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:textSize="20dp"
+                        android:textColor="@android:color/black"
+                        android:text="       Sun   Mon  Tue  Wed  Thu  Fri   Sat"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.8">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:textSize="24dp"
+                        android:textColor="@android:color/black"
+                        android:id="@+id/currWeekDates"
+                        android:text="      26   01   01   01   01   01   01"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                >
+
+                <ListView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:listSelector="@android:color/transparent"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@null"
+                    android:dividerHeight="10dp"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#111"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp" />
+</android.support.v4.widget.DrawerLayout>
+

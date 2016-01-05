@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:text="TextView"
+            android:textAllCaps="true"
+            android:textSize="27dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="22dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autoLink="web"
+            android:scrollbars="vertical"
+            android:textSize="19dp"
+            android:text="TextView"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+
+            android:textColorLink="#ffff3e55" />
+    </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="0.1">
+
+        <Button
+            android:id="@+id/list_comment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:autoLink="web"
+            android:background="@color/background"
+            android:text="View Comments"
+            android:textSize="25dp"></Button>
+    </LinearLayout>
+</LinearLayout>

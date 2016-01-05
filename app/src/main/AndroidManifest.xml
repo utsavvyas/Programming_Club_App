@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="programmingclub.daiict" >
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+
+        >
+
+        <activity
+            android:name=".CommentView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.COMMENTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AboutDevelopers"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.ABOUTDEVELOPER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".EventListView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.EVENTLISTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BlogListView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.BLOGLISTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".CategoryListView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.CATEGORYLISTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AnnouncementListView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.ANNOUNCEMENTLISTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AnnouncementView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.ANNOUNCEMENTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BlogView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.BLOGVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".BlogCategoryListView"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.BLOGCATEGORYLISTVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity_RSS"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.MAINACTIVITY_RSS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="programmingclub.daiict.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Splash"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".FragmentActivity"
+            >
+        </activity>
+
+        <service android:name=".PCWorldRssService" />
+        <service android:name=".TechnologyAppRssService"/>
+        <service android:name=".AndroidRssService"/>
+        <service android:name=".StartUpRssService"/>
+        <service android:name=".GamingRssService"/>
+        <service android:name=".OpenSourceRssService"/>
+        <service android:name=".InternetRssService"/>
+        <service android:name=".SoftwareRssService"/>
+
+        <service android:name="programmingclub.daiict.MyAlarmService"
+            android:enabled="true" />
+
+        <receiver android:name="programmingclub.daiict.MyReceiver"/>
+
+        <service android:name="programmingclub.daiict.service.ScheduleService" />
+        <service android:name="programmingclub.daiict.service.NotifyService" />
+
+    </application>
+
+
+
+</manifest>

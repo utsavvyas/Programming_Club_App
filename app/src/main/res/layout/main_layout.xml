@@ -18,8 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title"
-            android:text="Algorithm of the day !"
+            android:text=" Algorithm Of The Day !"
             android:textSize="20dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingLeft="8dp"
             />
 
         <WebView
@@ -37,6 +40,8 @@
         android:layout_gravity="start"
         android:background="#111"
         android:choiceMode="singleChoice"
+        android:paddingLeft="10dp"
+        android:paddingTop="8dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
 </android.support.v4.widget.DrawerLayout>

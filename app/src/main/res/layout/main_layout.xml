@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/title"
             android:text=" Algorithm Of The Day !"
+            android:textColor="#222"
+            android:textStyle="bold|italic"
             android:textSize="20dp"
             android:paddingTop="7dp"
             android:paddingBottom="7dp"

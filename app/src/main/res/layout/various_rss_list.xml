@@ -71,7 +71,7 @@ android:layout_height="match_parent">
     android:id="@+id/rssListView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:divider="#9E9E9E"
+    android:divider="#222"
     android:dividerHeight="1dp"
     android:scrollbars="none"></ListView>
 

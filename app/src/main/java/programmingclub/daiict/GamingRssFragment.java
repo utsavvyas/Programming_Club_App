@@ -148,9 +148,11 @@ public class GamingRssFragment  extends Fragment implements AdapterView.OnItemCl
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         RssAdapter adapter = (RssAdapter) parent.getAdapter();
         RssItem item = (RssItem) adapter.getItem(position);
-        Uri uri = Uri.parse(item.getLink());
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        String url = item.getLink();
+        Intent intent=new Intent(getActivity(),WebViewActivity.class );
+        intent.putExtra("url",url);
         startActivity(intent);
+
     }
 
 }

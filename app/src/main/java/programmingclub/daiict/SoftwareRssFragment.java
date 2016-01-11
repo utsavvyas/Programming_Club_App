@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -145,10 +146,13 @@ public class SoftwareRssFragment  extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.d("SoftwareRssFragment" , "reached OnItemClick !!!!!!!!!!!!!!!!!!!! ");
         RssAdapter adapter = (RssAdapter) parent.getAdapter();
         RssItem item = (RssItem) adapter.getItem(position);
-        Uri uri = Uri.parse(item.getLink());
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        //Uri uri = Uri.parse(item.getLink());
+        String url = item.getLink();
+        Intent intent=new Intent(getActivity(),WebViewActivity.class );
+        intent.putExtra("url",url);
         startActivity(intent);
     }
 

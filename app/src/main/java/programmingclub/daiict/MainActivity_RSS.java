@@ -85,14 +85,14 @@ public class MainActivity_RSS extends Activity implements AdapterView.OnItemClic
 
         List<String> l =new ArrayList<String>();
 
-        l.add("PCWorld news");
-        l.add("Technology news");
-        l.add("android news");
-        l.add("startUp news");
-        l.add("gaming news");
-        l.add("open Source news");
-        l.add("internet news");
-        l.add("software news");
+        l.add("PCWorld News");
+        l.add("Technology News");
+        l.add("Android News");
+        l.add("StartUp News");
+        l.add("Gaming News");
+        l.add("Open Source News");
+        l.add("Internet News");
+        l.add("Software News");
         //LinearLayout ll=(LinearLayout ) findViewById(R.id.container_layout);
 /*
         StikkyHeaderBuilder.stickTo(listView)

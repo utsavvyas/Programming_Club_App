@@ -297,19 +297,20 @@ public class MainActivity extends Activity {
 
        // Intent intent = new Intent(this,MainActivity.class); //I explicity instruct the activity to launch main acitivity and close itself
        //startActivity(intent);
-        position=-5;
-        getActionBar().setTitle(getString(R.string.app_name));
-        finish();
+        //position=-5;
+
+
         if(mDrawerLayout.isDrawerOpen(mDrawerList)){
             mDrawerLayout.closeDrawer(mDrawerList);
 
+        //    finish();
 
-
-            finish();
-
-        }else {
+        }/*else {
             mDrawerLayout.openDrawer(mDrawerList);
 
-        }
+        }*/
+
+        finish();
+        getActionBar().setTitle(getString(R.string.app_name));
     }
 }

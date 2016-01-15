@@ -142,6 +142,10 @@
             >
         </activity>
 
+        <activity android:name=".WebViewActivity">
+
+        </activity>
+
         <service android:name=".PCWorldRssService" />
         <service android:name=".TechnologyAppRssService"/>
         <service android:name=".AndroidRssService"/>

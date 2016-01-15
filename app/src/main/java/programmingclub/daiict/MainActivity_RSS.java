@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,7 +26,7 @@ import java.util.List;
 /**
  * Created by omkar13 on 12/17/2015.
  */
-public class MainActivity_RSS extends Activity implements AdapterView.OnItemClickListener{
+public class MainActivity_RSS extends MainActivity implements AdapterView.OnItemClickListener{
 
     private TextView stickyView;
     private ListView listView;
@@ -37,6 +40,30 @@ public class MainActivity_RSS extends Activity implements AdapterView.OnItemClic
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.various_rss_list);
+
+        //trying to get the drawer here as well
+        frameLayout = (FrameLayout)findViewById(R.id.content_frame);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
+
+        // set a custom shadow that overlays the main content when the drawer opens
+        //mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+
+        // set up the drawer's list view with items and click listener
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, listArray));
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                openActivity(position);
+            }
+        });
+
+        mDrawerList.setItemChecked(position, true);
+        setTitle(listArray[position]);
 
         listView = (ListView) findViewById(R.id.rssListView);
         heroImageView = findViewById(R.id.heroImageView); //containing the photo

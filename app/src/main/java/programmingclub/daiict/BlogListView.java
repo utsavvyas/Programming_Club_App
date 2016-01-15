@@ -128,7 +128,8 @@ public class BlogListView extends MainActivity {
             }
         });
 
-
+        mDrawerList.setItemChecked(position, true);
+        setTitle(listArray[position]);
 
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);
         final asyncex as = new asyncex();
@@ -275,5 +276,26 @@ public class BlogListView extends MainActivity {
         });
     }
 
+    /* We can override onBackPressed method to toggle navigation drawer*/
+    @Override
+    public void onBackPressed() {
 
+        // Intent intent = new Intent(this,MainActivity.class); //I explicity instruct the activity to launch main acitivity and close itself
+        //startActivity(intent);
+        //position=-5;
+
+
+        if(mDrawerLayout.isDrawerOpen(mDrawerList)){
+            mDrawerLayout.closeDrawer(mDrawerList);
+
+            //    finish();
+
+        }/*else {
+            mDrawerLayout.openDrawer(mDrawerList);
+
+        }*/
+
+        finish();
+        getActionBar().setTitle(getString(R.string.app_name));
+    }
 }

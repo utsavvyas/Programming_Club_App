@@ -147,12 +147,15 @@ public class MainActivity extends Activity {
     public void initializeActionBarDrawerToggle() {
         // ActionBarDrawerToggle ties together the the proper interactions between the sliding drawer and the action bar app icon
         actionBarDrawerToggle = new ActionBarDrawerToggle(
+
                 this,						/* host Activity */
                 mDrawerLayout, 				/* DrawerLayout object */
                 //android.support.v7.widget.Toolbar,
                 R.drawable.ic_navigation_drawer,     /* nav drawer image to replace 'Up' caret */
                 R.string.open_drawer,         /* "open drawer" description for accessibility */
-                R.string.close_drawer)      /* "close drawer" description for accessibility */ {
+                R.string.close_drawer)
+                 /* "close drawer" description for accessibility */
+        {
             @Override
             public void onDrawerClosed(View drawerView) {
 
@@ -180,6 +183,7 @@ public class MainActivity extends Activity {
                 super.onDrawerStateChanged(newState);
             }
         };
+
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
 
 
@@ -348,6 +352,10 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(actionBarDrawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
 
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.

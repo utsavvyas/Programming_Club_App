@@ -40,7 +40,7 @@ public class CategoryListView extends MainActivity {
                 openActivity(position);
             }
         });
-        
+
         initializeActionBarDrawerToggle();
 
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);

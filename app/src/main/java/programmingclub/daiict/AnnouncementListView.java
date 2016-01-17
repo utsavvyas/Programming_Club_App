@@ -109,6 +109,8 @@ public class AnnouncementListView extends MainActivity {
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
 
+        initializeActionBarDrawerToggle();
+
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);
         final asyncex as = new asyncex();
         JSONArray jArray = null;

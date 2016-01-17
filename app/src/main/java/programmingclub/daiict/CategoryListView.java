@@ -40,7 +40,8 @@ public class CategoryListView extends MainActivity {
                 openActivity(position);
             }
         });
-
+        
+        initializeActionBarDrawerToggle();
 
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);
         final ListView list = (ListView)findViewById(R.id.card_listViewCategory);

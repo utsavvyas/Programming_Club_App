@@ -135,6 +135,14 @@ public class MainActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
+        initializeActionBarDrawerToggle();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new com.google.android.gms.common.api.GoogleApiClient.Builder(this).addApi(com.google.android.gms.appindexing.AppIndex.API).build();
+    }
+
+    public void initializeActionBarDrawerToggle() {
         // ActionBarDrawerToggle ties together the the proper interactions between the sliding drawer and the action bar app icon
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,						/* host Activity */
@@ -186,9 +194,6 @@ public class MainActivity extends Activity {
             isLaunch = false;
             openActivity(-5);
         }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new com.google.android.gms.common.api.GoogleApiClient.Builder(this).addApi(com.google.android.gms.appindexing.AppIndex.API).build();
     }
 
     @Override

@@ -58,6 +58,8 @@ public class MainActivity_RSS extends MainActivity implements AdapterView.OnItem
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
 
+        initializeActionBarDrawerToggle();
+
         listView = (ListView) findViewById(R.id.rssListView);
         heroImageView = findViewById(R.id.heroImageView); //containing the photo
         stickyView = (TextView) findViewById(R.id.stickyView);

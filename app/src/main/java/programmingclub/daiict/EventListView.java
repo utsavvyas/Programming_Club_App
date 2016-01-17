@@ -178,6 +178,8 @@ public class EventListView extends MainActivity {
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
 
+        initializeActionBarDrawerToggle();
+
         adapter = new EventCardArrayAdapter(this, R.layout.eventlayout);
         mySQLiteHelper = new MySQLiteHelper(this);
         Toast.makeText(getApplicationContext(), "Click on the event to set notification", LENGTH_LONG).show();

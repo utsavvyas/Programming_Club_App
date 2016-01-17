@@ -24,6 +24,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import programmingclub.daiict.classes.About_Developers.AboutDevelopers;
+import programmingclub.daiict.classes.announcement_classes.AnnouncementListView;
+import programmingclub.daiict.classes.blog_classes.BlogListView;
+import programmingclub.daiict.classes.category_classes.CategoryListView;
+import programmingclub.daiict.classes.event_classes.EventListView;
+import programmingclub.daiict.classes.tech_news_classes.MainActivity_RSS;
+
 //AndroidManifest, combine MainActivities
 
 
@@ -68,12 +75,12 @@ public class MainActivity extends Activity {
     /**
      *  Base layout node of this Activity.
      * */
-     DrawerLayout mDrawerLayout;
+    public  DrawerLayout mDrawerLayout;
 
     /**
      * Drawer listner class for drawer open, close etc.
      */
-    ActionBarDrawerToggle actionBarDrawerToggle;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
 
 
     @Override
@@ -269,12 +276,10 @@ public class MainActivity extends Activity {
 
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
         switch (item.getItemId()) {
             case R.id.action_settings:
+                Intent i =new Intent(this, AboutDevelopers.class);
+                startActivity(i);
                 return true;
 
             default:

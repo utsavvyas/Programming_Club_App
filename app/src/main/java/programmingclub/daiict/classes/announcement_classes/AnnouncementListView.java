@@ -116,6 +116,8 @@ public class AnnouncementListView extends MainActivity {
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
 
+        initializeActionBarDrawerToggle();
+
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);
         final asyncex as = new asyncex();
         JSONArray jArray = null;
@@ -228,5 +230,17 @@ public class AnnouncementListView extends MainActivity {
         });
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[2]);
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(listArray[2]);
     }
 }

@@ -15,11 +15,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD:app/src/main/java/programmingclub/daiict/classes/event_classes/EventListView.java
 import programmingclub.daiict.MainActivity;
 import programmingclub.daiict.classes.database_management_class.MySQLiteHelper;
 import programmingclub.daiict.R;
 import programmingclub.daiict.classes.service_classes.ScheduleClient;
 
+=======
+>>>>>>> 76307888a1f8d7b9b3e0c88800239e890857b883:app/src/main/java/programmingclub/daiict/EventListView.java
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -34,6 +37,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import programmingclub.daiict.service.ScheduleClient;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
@@ -180,6 +185,8 @@ public class EventListView extends MainActivity {
 
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
+
+        initializeActionBarDrawerToggle();
 
         adapter = new EventCardArrayAdapter(this, R.layout.eventlayout);
         mySQLiteHelper = new MySQLiteHelper(this);
@@ -399,4 +406,16 @@ public class EventListView extends MainActivity {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[1]);
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        mDrawerList.setItemChecked(position, true);
+        getActionBar().setTitle(listArray[1]);
+    }
 }

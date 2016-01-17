@@ -15,7 +15,7 @@
         >
 
         <activity
-            android:name=".CommentView"
+            android:name=".classes.blog_classes.CommentView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.COMMENTVIEW" />
@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".AboutDevelopers"
+            android:name=".classes.About_Developers.AboutDevelopers"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.ABOUTDEVELOPER" />
@@ -35,7 +35,7 @@
         </activity>
 
         <activity
-            android:name=".EventListView"
+            android:name=".classes.event_classes.EventListView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.EVENTLISTVIEW" />
@@ -45,7 +45,7 @@
         </activity>
 
         <activity
-            android:name=".BlogListView"
+            android:name=".classes.blog_classes.BlogListView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.BLOGLISTVIEW" />
@@ -55,7 +55,7 @@
         </activity>
 
         <activity
-            android:name=".CategoryListView"
+            android:name=".classes.category_classes.CategoryListView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.CATEGORYLISTVIEW" />
@@ -65,7 +65,7 @@
         </activity>
 
         <activity
-            android:name=".AnnouncementListView"
+            android:name=".classes.announcement_classes.AnnouncementListView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.ANNOUNCEMENTLISTVIEW" />
@@ -75,7 +75,7 @@
         </activity>
 
         <activity
-            android:name=".AnnouncementView"
+            android:name=".classes.announcement_classes.AnnouncementView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.ANNOUNCEMENTVIEW" />
@@ -85,7 +85,7 @@
         </activity>
 
         <activity
-            android:name=".BlogView"
+            android:name=".classes.blog_classes.BlogView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.BLOGVIEW" />
@@ -95,7 +95,7 @@
         </activity>
 
         <activity
-            android:name=".BlogCategoryListView"
+            android:name=".classes.blog_classes.BlogCategoryListView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.BLOGCATEGORYLISTVIEW" />
@@ -105,7 +105,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity_RSS"
+            android:name=".classes.tech_news_classes.MainActivity_RSS"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="programmingclub.daiict.MAINACTIVITY_RSS" />
@@ -129,7 +129,7 @@
         </activity>
 
         <activity
-            android:name=".Splash"
+            android:name=".classes.logo_screen_at_start_class.Splash"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -138,30 +138,35 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FragmentActivity"
+        <activity android:name=".classes.tech_news_classes.FragmentActivity"
             >
         </activity>
 
-        <activity android:name=".WebViewActivity">
+        <activity android:name=".classes.tech_news_classes.WebViewActivity">
 
         </activity>
 
-        <service android:name=".PCWorldRssService" />
-        <service android:name=".TechnologyAppRssService"/>
-        <service android:name=".AndroidRssService"/>
-        <service android:name=".StartUpRssService"/>
-        <service android:name=".GamingRssService"/>
-        <service android:name=".OpenSourceRssService"/>
-        <service android:name=".InternetRssService"/>
-        <service android:name=".SoftwareRssService"/>
+        <service android:name=".classes.tech_news_classes.PCWorldRssService" />
+        <service android:name=".classes.tech_news_classes.TechnologyAppRssService"/>
+        <service android:name=".classes.tech_news_classes.AndroidRssService"/>
+        <service android:name=".classes.tech_news_classes.StartUpRssService"/>
+        <service android:name=".classes.tech_news_classes.GamingRssService"/>
+        <service android:name=".classes.tech_news_classes.OpenSourceRssService"/>
+        <service android:name=".classes.tech_news_classes.InternetRssService"/>
+        <service android:name=".classes.tech_news_classes.SoftwareRssService"/>
 
-        <service android:name="programmingclub.daiict.MyAlarmService"
+        <service android:name=".classes.event_classes.MyAlarmService"
             android:enabled="true" />
 
-        <receiver android:name="programmingclub.daiict.MyReceiver"/>
+        <receiver android:name=".classes.event_classes.MyReceiver"/>
 
+        <service android:name=".classes.service_classes.ScheduleService" />
+        <service android:name=".classes.service_classes.NotifyService" />
+<!--
         <service android:name="programmingclub.daiict.service.ScheduleService" />
-        <service android:name="programmingclub.daiict.service.NotifyService" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <service android:name="programmingclub.daiict.service.NotifyService" />
+  -->
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

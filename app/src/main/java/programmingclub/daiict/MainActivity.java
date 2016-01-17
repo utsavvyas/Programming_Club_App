@@ -25,20 +25,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-<<<<<<< HEAD
 import programmingclub.daiict.classes.About_Developers.AboutDevelopers;
 import programmingclub.daiict.classes.announcement_classes.AnnouncementListView;
 import programmingclub.daiict.classes.blog_classes.BlogListView;
 import programmingclub.daiict.classes.category_classes.CategoryListView;
 import programmingclub.daiict.classes.event_classes.EventListView;
 import programmingclub.daiict.classes.tech_news_classes.MainActivity_RSS;
-=======
-//import android.support.v4.widget.DrawerLayout;
->>>>>>> 76307888a1f8d7b9b3e0c88800239e890857b883
-
-//AndroidManifest, combine MainActivities
-
 
 /**
  * @author dipenp
@@ -83,25 +75,16 @@ public class MainActivity extends Activity {
      *  Base layout node of this Activity.
      * */
     public  DrawerLayout mDrawerLayout;
-=======
-     * Base layout node of this Activity.
-     */
-    DrawerLayout mDrawerLayout;
->>>>>>> 76307888a1f8d7b9b3e0c88800239e890857b883
 
     /**
      * Drawer listner class for drawer open, close etc.
      */
-<<<<<<< HEAD
     public ActionBarDrawerToggle actionBarDrawerToggle;
-=======
-    ActionBarDrawerToggle actionBarDrawerToggle;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private com.google.android.gms.common.api.GoogleApiClient client;
->>>>>>> 76307888a1f8d7b9b3e0c88800239e890857b883
 
 
     @Override
@@ -368,14 +351,6 @@ public class MainActivity extends Activity {
 
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
-<<<<<<< HEAD
-=======
-
-       /* if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        */
->>>>>>> 76307888a1f8d7b9b3e0c88800239e890857b883
         switch (item.getItemId()) {
             case R.id.action_settings:
                 Intent i =new Intent(this, AboutDevelopers.class);

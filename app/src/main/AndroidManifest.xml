@@ -160,17 +160,17 @@
 
         <receiver android:name=".classes.event_classes.MyReceiver"/>
 
-<<<<<<< HEAD
         <service android:name=".classes.service_classes.ScheduleService" />
         <service android:name=".classes.service_classes.NotifyService" />
-=======
+<!--
         <service android:name="programmingclub.daiict.service.ScheduleService" />
-        <service android:name="programmingclub.daiict.service.NotifyService" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <service android:name="programmingclub.daiict.service.NotifyService" />
+  -->
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
->>>>>>> 76307888a1f8d7b9b3e0c88800239e890857b883
 
     </application>
 

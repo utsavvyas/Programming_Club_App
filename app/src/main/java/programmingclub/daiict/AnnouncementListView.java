@@ -1,6 +1,5 @@
 package programmingclub.daiict;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -222,5 +221,17 @@ public class AnnouncementListView extends MainActivity {
         });
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[2]);
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(listArray[2]);
     }
 }

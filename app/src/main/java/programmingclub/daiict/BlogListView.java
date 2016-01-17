@@ -1,6 +1,5 @@
 package programmingclub.daiict;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -276,26 +275,15 @@ public class BlogListView extends MainActivity {
         });
     }
 
-    /* We can override onBackPressed method to toggle navigation drawer*/
     @Override
-    public void onBackPressed() {
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[0]);
+    }
 
-        // Intent intent = new Intent(this,MainActivity.class); //I explicity instruct the activity to launch main acitivity and close itself
-        //startActivity(intent);
-        //position=-5;
-
-
-        if(mDrawerLayout.isDrawerOpen(mDrawerList)){
-            mDrawerLayout.closeDrawer(mDrawerList);
-
-            //    finish();
-
-        }/*else {
-            mDrawerLayout.openDrawer(mDrawerList);
-
-        }*/
-
-        finish();
-        getActionBar().setTitle(getString(R.string.app_name));
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(listArray[0]);
     }
 }

@@ -269,12 +269,15 @@ public class MainActivity extends Activity {
 
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+
+       /* if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
+        */
         switch (item.getItemId()) {
             case R.id.action_settings:
+                Intent i =new Intent(this, AboutDevelopers.class);
+                startActivity(i);
                 return true;
 
             default:

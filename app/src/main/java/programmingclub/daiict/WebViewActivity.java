@@ -3,6 +3,7 @@ package programmingclub.daiict;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -24,10 +25,13 @@ public class WebViewActivity extends Activity {
 
         w.setWebViewClient(new WebViewClient() {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
                 view.loadUrl(url);
                 return true;
             }});
 
+        WebSettings ws = w.getSettings();
+        ws.setJavaScriptEnabled(true);
         w.loadUrl(url);
 
     }

@@ -1,22 +1,15 @@
 package programmingclub.daiict;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -64,6 +57,8 @@ public class MainActivity_RSS extends MainActivity implements AdapterView.OnItem
 
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
+
+        initializeActionBarDrawerToggle();
 
         listView = (ListView) findViewById(R.id.rssListView);
         heroImageView = findViewById(R.id.heroImageView); //containing the photo
@@ -218,5 +213,17 @@ public class MainActivity_RSS extends MainActivity implements AdapterView.OnItem
         if(listItemClick)
             startActivity(i);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[4]);
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(listArray[4]);
     }
 }

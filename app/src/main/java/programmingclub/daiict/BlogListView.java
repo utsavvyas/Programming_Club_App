@@ -1,13 +1,11 @@
 package programmingclub.daiict;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -72,35 +70,6 @@ public class BlogListView extends MainActivity {
         }
     }
 
-    //added so that drawer responds to clicks on action bar
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        // The action bar home/up action should open or close the drawer.
-        // ActionBarDrawerToggle will take care of this.
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -130,6 +99,8 @@ public class BlogListView extends MainActivity {
 
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
+
+        initializeActionBarDrawerToggle();
 
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);
         final asyncex as = new asyncex();
@@ -276,26 +247,15 @@ public class BlogListView extends MainActivity {
         });
     }
 
-    /* We can override onBackPressed method to toggle navigation drawer*/
     @Override
-    public void onBackPressed() {
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[0]);
+    }
 
-        // Intent intent = new Intent(this,MainActivity.class); //I explicity instruct the activity to launch main acitivity and close itself
-        //startActivity(intent);
-        //position=-5;
-
-
-        if(mDrawerLayout.isDrawerOpen(mDrawerList)){
-            mDrawerLayout.closeDrawer(mDrawerList);
-
-            //    finish();
-
-        }/*else {
-            mDrawerLayout.openDrawer(mDrawerList);
-
-        }*/
-
-        finish();
-        getActionBar().setTitle(getString(R.string.app_name));
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(listArray[0]);
     }
 }

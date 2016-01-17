@@ -1,6 +1,5 @@
 package programmingclub.daiict;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -16,8 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import programmingclub.daiict.service.ScheduleClient;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -32,6 +29,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+
+import programmingclub.daiict.service.ScheduleClient;
 
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
@@ -178,6 +177,8 @@ public class EventListView extends MainActivity {
 
         mDrawerList.setItemChecked(position, true);
         setTitle(listArray[position]);
+
+        initializeActionBarDrawerToggle();
 
         adapter = new EventCardArrayAdapter(this, R.layout.eventlayout);
         mySQLiteHelper = new MySQLiteHelper(this);
@@ -397,4 +398,16 @@ public class EventListView extends MainActivity {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[1]);
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        mDrawerList.setItemChecked(position, true);
+        getActionBar().setTitle(listArray[1]);
+    }
 }

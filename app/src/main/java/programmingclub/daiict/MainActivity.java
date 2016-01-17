@@ -2,6 +2,8 @@ package programmingclub.daiict;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -24,22 +26,24 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+//import android.support.v4.widget.DrawerLayout;
+
 //AndroidManifest, combine MainActivities
 
 
 /**
  * @author dipenp
- *
- * This activity will add Navigation Drawer for our application and all the code related to navigation drawer.
- * We are going to extend all our other activites from this BaseActivity so that every activity will have Navigation Drawer in it.
- * This activity layout contain one frame layout in which we will add our child activity layout.
+ *         <p/>
+ *         This activity will add Navigation Drawer for our application and all the code related to navigation drawer.
+ *         We are going to extend all our other activites from this BaseActivity so that every activity will have Navigation Drawer in it.
+ *         This activity layout contain one frame layout in which we will add our child activity layout.
  */
 public class MainActivity extends Activity {
 
     /**
-     *  Frame layout: Which is going to be used as parent layout for child activity layout.
-     *  This layout is protected so that child activity can access this
-     *  */
+     * Frame layout: Which is going to be used as parent layout for child activity layout.
+     * This layout is protected so that child activity can access this
+     */
     protected FrameLayout frameLayout;
 
     /**
@@ -51,29 +55,34 @@ public class MainActivity extends Activity {
 
     /**
      * List item array for navigation drawer items.
-     * */
-    protected String[] listArray = { "Blog", "Events", "Announcements", "Editorial", "Tech News" };
+     */
+    protected String[] listArray = {"Blog", "Events", "Announcements", "Editorial", "Tech News"};
 
     /**
      * Static variable for selected item position. Which can be used in child activity to know which item is selected from the list.
-     * */
+     */
     protected static int position;
 
     /**
-     *  This flag is used just to check that launcher activity is called first time
-     *  so that we can open appropriate Activity on launch and make list item position selected accordingly.
-     * */
-    private static boolean isLaunch = true;
+     * This flag is used just to check that launcher activity is called first time
+     * so that we can open appropriate Activity on launch and make list item position selected accordingly.
+     */
+    protected static boolean isLaunch = true;
 
     /**
-     *  Base layout node of this Activity.
-     * */
-     DrawerLayout mDrawerLayout;
+     * Base layout node of this Activity.
+     */
+    DrawerLayout mDrawerLayout;
 
     /**
      * Drawer listner class for drawer open, close etc.
      */
     ActionBarDrawerToggle actionBarDrawerToggle;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private com.google.android.gms.common.api.GoogleApiClient client;
 
 
     @Override
@@ -90,21 +99,20 @@ public class MainActivity extends Activity {
             JSONObject jobj = new JSONObject(result);
             //     jArray = jobj.getJSONArray("posts");
 
-            String s = (String)jobj.get("content");
-            String parts[]=s.split("\"");
-            String url=parts[1];
+            String s = (String) jobj.get("content");
+            String parts[] = s.split("\"");
+            String url = parts[1];
             w.loadUrl(url);
 
             //Log.d("url",url);
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             Toast.makeText(this.getApplicationContext(), "No Internet Connection.Please connect to Internet", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 
-        frameLayout = (FrameLayout)findViewById(R.id.content_frame);
+        frameLayout = (FrameLayout) findViewById(R.id.content_frame);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -127,19 +135,27 @@ public class MainActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
+        initializeActionBarDrawerToggle();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new com.google.android.gms.common.api.GoogleApiClient.Builder(this).addApi(com.google.android.gms.appindexing.AppIndex.API).build();
+    }
+
+    public void initializeActionBarDrawerToggle() {
         // ActionBarDrawerToggle ties together the the proper interactions between the sliding drawer and the action bar app icon
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this,						/* host Activity */
                 mDrawerLayout, 				/* DrawerLayout object */
-                R.drawable.ic_launcher,     /* nav drawer image to replace 'Up' caret */
-                R.string.open_drawer,       /* "open drawer" description for accessibility */
-                R.string.close_drawer)      /* "close drawer" description for accessibility */
-        {
+                //android.support.v7.widget.Toolbar,
+                R.drawable.ic_navigation_drawer,     /* nav drawer image to replace 'Up' caret */
+                R.string.open_drawer,         /* "open drawer" description for accessibility */
+                R.string.close_drawer)      /* "close drawer" description for accessibility */ {
             @Override
             public void onDrawerClosed(View drawerView) {
 
-                if (position>=0)
-                getActionBar().setTitle(listArray[position]);
+                if (position >= 0)
+                    getActionBar().setTitle(listArray[position]);
 
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
                 super.onDrawerClosed(drawerView);
@@ -169,7 +185,7 @@ public class MainActivity extends Activity {
          * As we are calling BaseActivity from manifest file and this base activity is intended just to add navigation drawer in our app.
          * We have to open some activity with layout on launch. So we are checking if this BaseActivity is called first time then we are opening our first activity.
          * */
-        if(isLaunch){
+        if (isLaunch) {
             /**
              *Setting this flag false so that next time it will not open our first activity.
              *We have to use this flag because we are using this BaseActivity as parent activity to our other activity.
@@ -178,6 +194,72 @@ public class MainActivity extends Activity {
             isLaunch = false;
             openActivity(-5);
         }
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        actionBarDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        com.google.android.gms.appindexing.Action viewAction = com.google.android.gms.appindexing.Action.newAction(
+                com.google.android.gms.appindexing.Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://programmingclub.daiict/http/host/path")
+        );
+        com.google.android.gms.appindexing.AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(getString(R.string.app_name));
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(getString(R.string.app_name));
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        com.google.android.gms.appindexing.Action viewAction = com.google.android.gms.appindexing.Action.newAction(
+                com.google.android.gms.appindexing.Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://programmingclub.daiict/http/host/path")
+        );
+        com.google.android.gms.appindexing.AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 
     //inner class for retrive data from wordpress rest api
@@ -215,9 +297,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * @param position
-     *
-     * Launching activity when any list item is clicked.
+     * @param position Launching activity when any list item is clicked.
      */
     protected void openActivity(int position) {
 
@@ -254,7 +334,7 @@ public class MainActivity extends Activity {
                 break;
         }
 
-       // Toast.makeText(this, "Selected Item Position::"+position, Toast.LENGTH_LONG).show();
+        // Toast.makeText(this, "Selected Item Position::"+position, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -298,15 +378,15 @@ public class MainActivity extends Activity {
     @Override
     public void onBackPressed() {
 
-       // Intent intent = new Intent(this,MainActivity.class); //I explicity instruct the activity to launch main acitivity and close itself
-       //startActivity(intent);
+        // Intent intent = new Intent(this,MainActivity.class); //I explicity instruct the activity to launch main acitivity and close itself
+        //startActivity(intent);
         //position=-5;
 
 
-        if(mDrawerLayout.isDrawerOpen(mDrawerList)){
+        if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
             mDrawerLayout.closeDrawer(mDrawerList);
 
-        //    finish();
+            //    finish();
 
         }/*else {
             mDrawerLayout.openDrawer(mDrawerList);
@@ -314,6 +394,6 @@ public class MainActivity extends Activity {
         }*/
 
         finish();
-        getActionBar().setTitle(getString(R.string.app_name));
+        //getActionBar().setTitle(getString(R.string.app_name));
     }
 }

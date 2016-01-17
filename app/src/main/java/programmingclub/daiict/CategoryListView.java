@@ -1,6 +1,5 @@
 package programmingclub.daiict;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -41,7 +40,8 @@ public class CategoryListView extends MainActivity {
                 openActivity(position);
             }
         });
-
+        
+        initializeActionBarDrawerToggle();
 
         final MySQLiteHelper mySQLiteHelper = new MySQLiteHelper(this);
         final ListView list = (ListView)findViewById(R.id.card_listViewCategory);
@@ -66,4 +66,16 @@ public class CategoryListView extends MainActivity {
         });
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActionBar().setTitle(listArray[3]);
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        getActionBar().setTitle(listArray[3]);
+    }
 }

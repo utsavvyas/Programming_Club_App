@@ -25,11 +25,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-//import android.support.v4.widget.DrawerLayout;
-
-//AndroidManifest, combine MainActivities
-
+import programmingclub.daiict.classes.About_Developers.AboutDevelopers;
+import programmingclub.daiict.classes.announcement_classes.AnnouncementListView;
+import programmingclub.daiict.classes.blog_classes.BlogListView;
+import programmingclub.daiict.classes.category_classes.CategoryListView;
+import programmingclub.daiict.classes.event_classes.EventListView;
+import programmingclub.daiict.classes.tech_news_classes.MainActivity_RSS;
 
 /**
  * @author dipenp
@@ -70,14 +71,14 @@ public class MainActivity extends Activity {
     protected static boolean isLaunch = true;
 
     /**
-     * Base layout node of this Activity.
-     */
-    DrawerLayout mDrawerLayout;
+     *  Base layout node of this Activity.
+     * */
+    public  DrawerLayout mDrawerLayout;
 
     /**
      * Drawer listner class for drawer open, close etc.
      */
-    ActionBarDrawerToggle actionBarDrawerToggle;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -145,12 +146,15 @@ public class MainActivity extends Activity {
     public void initializeActionBarDrawerToggle() {
         // ActionBarDrawerToggle ties together the the proper interactions between the sliding drawer and the action bar app icon
         actionBarDrawerToggle = new ActionBarDrawerToggle(
+
                 this,						/* host Activity */
                 mDrawerLayout, 				/* DrawerLayout object */
                 //android.support.v7.widget.Toolbar,
                 R.drawable.ic_navigation_drawer,     /* nav drawer image to replace 'Up' caret */
                 R.string.open_drawer,         /* "open drawer" description for accessibility */
-                R.string.close_drawer)      /* "close drawer" description for accessibility */ {
+                R.string.close_drawer)
+                 /* "close drawer" description for accessibility */
+        {
             @Override
             public void onDrawerClosed(View drawerView) {
 
@@ -178,6 +182,7 @@ public class MainActivity extends Activity {
                 super.onDrawerStateChanged(newState);
             }
         };
+
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
 
 
